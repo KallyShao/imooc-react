@@ -3,7 +3,7 @@
 * @Date:   2018-01-09 22:15:10
 * @Last Modified by:   Administrator
 <<<<<<< HEAD
-* @Last Modified time: 2018-01-28 08:44:47
+* @Last Modified time: 2018-01-29 10:43:12
 =======
 * @Last Modified time: 2018-01-15 22:41:01
 >>>>>>> aa1af3e3feb33a787a7391f4c2ac44f30d3fa690
@@ -21,7 +21,7 @@ class Index extends React.Component {
         return (
             <div>
                 <Header />
-				<Body userid={8989}/>
+				<Body userid={6767} username={'父组件传递的username'}/>
 				<h2>this is h1</h2>
 				<p></p>
 			</div>
