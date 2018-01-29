@@ -2,10 +2,10 @@
 * @Author: Administrator
 * @Date:   2018-01-29 17:24:15
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-01-29 17:42:39
+* @Last Modified time: 2018-01-29 20:13:46
 */
 
-.fs{
+:global(.fs){
 	height: 100px;
 	background: #333;
 	color: #0ff;

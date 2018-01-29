@@ -2,7 +2,7 @@
  * @Author: Administrator
  * @Date:   2018-01-15 16:36:37
  * @Last Modified by:   Administrator
- * @Last Modified time: 2018-01-29 16:30:30
+ * @Last Modified time: 2018-01-29 21:39:39
  */
 
 import React from "react";
@@ -37,8 +37,9 @@ class Header extends React.Component {
 
 		return (
 			<div className="test">
-				<header style={styleComponentHeader.header} onClick={this.changeStyle.bind(this)}> I am the Header! </header>
-				<h1 style={styleComponentHeader.h1}>I am the h1 tag in the Header!</h1>
+				<header style={styleComponentHeader.header}> I am the Header! </header>
+				<h1 style={styleComponentHeader.h1} >I am the h1 tag in the Header!</h1>
+				<div className="fs">test</div>
 			</div>
 		)
 	}

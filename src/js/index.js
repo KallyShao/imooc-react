@@ -3,7 +3,7 @@
 * @Date:   2018-01-09 22:15:10
 * @Last Modified by:   Administrator
 <<<<<<< HEAD
-* @Last Modified time: 2018-01-29 10:43:12
+* @Last Modified time: 2018-01-29 22:06:15
 =======
 * @Last Modified time: 2018-01-15 22:41:01
 >>>>>>> aa1af3e3feb33a787a7391f4c2ac44f30d3fa690
@@ -14,9 +14,10 @@ var ReactDOM = require('react-dom');
 
 import Header from './component/header.js';
 import Body from './component/bodyIndex.js';
+import 'antd/dist/antd.css';
 
 
-class Index extends React.Component {
+export default class Index extends React.Component {
     render() {
         return (
             <div>
@@ -28,5 +29,3 @@ class Index extends React.Component {
         )
     }
 }
-
-ReactDOM.render(<Index/>, document.getElementById('test'));
