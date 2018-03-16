@@ -1,0 +1,22 @@
+/*
+* @Author: Kally Shao
+* @Date:   2018-03-16 10:21:47
+* @Last Modified by:   Kally Shao
+* @Last Modified time: 2018-03-16 15:07:51
+*/
+
+.logo{
+	align-items: center;
+	display: flex;
+}
+.logo img{
+	width: 48px;
+	height: 48px;
+}
+.logo span{
+	font-size: 24px;
+	padding-left: 8px;
+}
+.footer{
+	text-align: center;
+}

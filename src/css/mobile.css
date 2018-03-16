@@ -1,0 +1,27 @@
+/*
+* @Author: Kally Shao
+* @Date:   2018-03-16 14:37:28
+* @Last Modified by:   Kally Shao
+* @Last Modified time: 2018-03-16 14:59:32
+*/
+
+html{
+	font-size: 50px;
+}
+#mobile-header{
+	flex: 1;
+	background: #f6f6f6;
+}
+#mobile-header {
+	border-bottom: 1px solid #2db7f5;
+}
+#mobile-header img{
+	height: 50px;
+	margin: 5px;
+}
+#mobile-header span{
+	font-size: 35px;
+	vertical-align: top;
+	padding-left: 10px;
+	color: #2db7f5;
+}
