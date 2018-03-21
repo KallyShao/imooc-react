@@ -1,8 +1,8 @@
 /*
 * @Author: Kally Shao
 * @Date:   2018-03-16 10:21:47
-* @Last Modified by:   Kally Shao
-* @Last Modified time: 2018-03-16 15:07:51
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-03-21 17:19:03
 */
 
 .logo{
@@ -19,4 +19,10 @@
 }
 .footer{
 	text-align: center;
+}
+.register{
+	float: right !important;
+}
+.register button{
+	margin-left: 5px;
 }

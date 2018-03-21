@@ -1,8 +1,8 @@
 /*
 * @Author: Kally Shao
 * @Date:   2018-03-16 14:37:28
-* @Last Modified by:   Kally Shao
-* @Last Modified time: 2018-03-16 14:59:32
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-03-21 16:41:48
 */
 
 html{
@@ -24,4 +24,12 @@ html{
 	vertical-align: top;
 	padding-left: 10px;
 	color: #2db7f5;
+}
+.login-icon{
+    font-size: 0.5rem;
+    color: #ccc;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    color: #2db7f5;
 }

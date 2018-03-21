@@ -1,12 +1,13 @@
 /*
 * @Author: Administrator
 * @Date:   2018-03-15 16:23:38
-* @Last Modified by:   Kally Shao
-* @Last Modified time: 2018-03-20 17:44:23
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-03-21 17:33:01
 */
 
 import React from 'react';
 import { Row, Col, Menu, Icon, Button, Tabs, message, Form, Input, CheckBox, Modal } from 'antd';
+import { Router, Route, Link, browserHistory } from 'react-router';
 
 //用于表单提交
 const FormItem = Form.Item;
@@ -33,13 +34,19 @@ class PCHeader extends React.Component {
         };
         var formData = this.props.form.getFieldsValue();
         // console.log(formData);
-        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=register&username=userName&password=password&r_userName=" + formData.r_userName + "&r_password=" + formData.r_password + "&r_confirmPassword=" + formData.r_passwordConfirm, myFetchOptions)
+        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action + "&username=" + formData.userName + "&password=" + formData.password + "&r_userName=" + formData.r_userName + "&r_password=" + formData.r_password + "&r_confirmPassword=" + formData.r_passwordConfirm, myFetchOptions)
             .then(response => response.json()) //response是借口返回的内容，相当于回调函数中的传参
             .then(json => {
                 this.setState({
                     userNickName: json.NickUserName, //由api返回
                     uerid: json.UserId
                 });
+                //如果登录成功，将hasLogined置为true
+                if (this.state.action == 'login') {
+                    this.setState({
+                        hasLogined: true
+                    });
+                }
                 message.success('请求成功');
                 this.setModalVisible(false);
             })
@@ -64,6 +71,18 @@ class PCHeader extends React.Component {
         })
     }
     ;
+    callback(key) {
+        if (key == 'register') {
+            this.setState({
+                action: 'register'
+            })
+        } else if (key == 'login') {
+            this.setState({
+                action: 'login'
+            })
+        }
+    }
+    ;
     render() {
         //定义一个全局变量来接收form表单的参数
         let {getFieldDecorator} = this.props.form;
@@ -74,7 +93,7 @@ class PCHeader extends React.Component {
               <Link target="_blank">
                 <Button type="dashed" htmlType="button">个人中心</Button>
               </Link>
-              <Button type="ghost">退出</Button>
+              <Button type="danger">退出</Button>
             </Menu.Item>
             :
             <Menu.Item key="login" className="register" onClick={this.setModalVisible.bind(this)}>
@@ -134,9 +153,9 @@ class PCHeader extends React.Component {
             onOk = {() => this.setModalVisible(false)}
             okText = "关闭"
             >
-                    <Tabs type="card">
-                      <TabPane tab="注册">
-                        <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
+                    <Tabs type="card" onChange = {this.callback.bind(this)}>
+                      <TabPane tab="注册" key="register">
+                        <Form layout = "horizontal" onSubmit={this.handleSubmit.bind(this)}>
                           <FormItem label="账户">
                             {getFieldDecorator('r_userName')(<Input placeholder="请输入您的账号"></Input>)}
                           </FormItem>
@@ -149,7 +168,19 @@ class PCHeader extends React.Component {
                           <Button type="primary" htmlType="submit">注册</Button>
                         </Form>
                       </TabPane>
+                      <TabPane tab="登录" key="login">
+                        <Form layout = "horizontal" onSubmit={this.handleSubmit.bind(this)}>
+                          <FormItem label="账户">
+                            {getFieldDecorator('userName')(<Input placeholder="请输入您的账号"></Input>)}
+                          </FormItem>
+                          <FormItem label="密码">
+                            {getFieldDecorator('password')(<Input type="password" placeholder="请输入您的密码"></Input>)}
+                          </FormItem>
+                          <Button type="primary" htmlType="submit">登录</Button>
+                        </Form>
+                      </TabPane>
                     </Tabs>
+
                   </Modal>
               </Col>
               <Col span={2}>
