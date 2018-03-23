@@ -2,12 +2,12 @@
 * @Author: Administrator
 * @Date:   2018-03-15 16:23:38
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-21 17:33:01
+* @Last Modified time: 2018-03-23 15:26:12
 */
 
 import React from 'react';
 import { Row, Col, Menu, Icon, Button, Tabs, message, Form, Input, CheckBox, Modal } from 'antd';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, Link, browserHistory } from 'react-router-dom';
 
 //用于表单提交
 const FormItem = Form.Item;
@@ -26,6 +26,19 @@ class PCHeader extends React.Component {
         }
     }
     ;
+    //刷新时保持登录或登出的状态
+    componentWillMount() {
+        if (localStorage.userid != '') {
+            this.setState({
+                hasLogined: true
+            });
+            this.setState({
+                userNickName: localStorage.userNickName,
+                userid: localStorage.userid
+            });
+        }
+    }
+    ;
     handleSubmit(e) {
         //提交数据，注册或登录
         e.preventDefault(); //阻止事件冒泡
@@ -41,6 +54,8 @@ class PCHeader extends React.Component {
                     userNickName: json.NickUserName, //由api返回
                     uerid: json.UserId
                 });
+                localStorage.userid = json.userId;
+                localStorage.userNickName = json.NickUserName;
                 //如果登录成功，将hasLogined置为true
                 if (this.state.action == 'login') {
                     this.setState({
@@ -68,19 +83,27 @@ class PCHeader extends React.Component {
     setModalVisible(value) {
         this.setState({
             modalVisible: value
-        })
+        });
     }
     ;
     callback(key) {
         if (key == 'register') {
             this.setState({
                 action: 'register'
-            })
+            });
         } else if (key == 'login') {
             this.setState({
                 action: 'login'
-            })
+            });
         }
+    }
+    ;
+    logout() {
+        localStorage.userid = '';
+        localStorage.userNickName = '';
+        this.setState({
+            hasLogined: false
+        });
     }
     ;
     render() {
@@ -90,10 +113,8 @@ class PCHeader extends React.Component {
             ?
             <Menu.Item key="logout" className="register">
               <Button type="primary">{this.state.userNickName}</Button>
-              <Link target="_blank">
-                <Button type="dashed" htmlType="button">个人中心</Button>
-              </Link>
-              <Button type="danger">退出</Button>
+              <Button type="dashed" htmlType="button">个人中心</Button>
+              <Button type="danger" onClick={this.logout.bind(this)}>退出</Button>
             </Menu.Item>
             :
             <Menu.Item key="login" className="register" onClick={this.setModalVisible.bind(this)}>

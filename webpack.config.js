@@ -1,8 +1,8 @@
 /*
  * @Author: Administrator
  * @Date:   2018-01-08 22:16:12
- * @Last Modified by:   Kally Shao
- * @Last Modified time: 2018-03-16 11:28:15
+ * @Last Modified by:   Administrator
+ * @Last Modified time: 2018-03-23 16:04:34
  */
 
 var debug = process.env.NODE_ENV !== "production";
@@ -10,6 +10,9 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+    devServer: {
+        historyApiFallback: true
+    },
     context: path.join(__dirname), //__dirname是全局目录，也是项目根目录
     devtool: debug ? "inline-sourcemap" : null,
     entry: './src/js/root.js',

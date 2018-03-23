@@ -2,7 +2,7 @@
 * @Author: Kally Shao
 * @Date:   2018-03-16 10:21:47
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-21 17:19:03
+* @Last Modified time: 2018-03-23 17:35:36
 */
 
 .logo{
@@ -25,4 +25,23 @@
 }
 .register button{
 	margin-left: 5px;
+}
+/*.left-container{
+	border: 1px solid #ccc;
+}*/
+.left-container .carousel img{
+	width: 300px;
+	height: auto;
+	margin: 20px auto;
+}
+.imageblock{
+	float: left;
+	margin-right: 20px;
+}
+.custom-card {
+    padding: 5px;
+}
+
+.custom-card p {
+    color: #999;
 }

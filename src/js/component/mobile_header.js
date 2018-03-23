@@ -2,12 +2,12 @@
 * @Author: Kally Shao
 * @Date:   2018-03-15 16:23:57
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-21 17:34:04
+* @Last Modified time: 2018-03-23 10:04:02
 */
 
 import React from 'react';
 import { Row, Col, Menu, Icon, Button, Tabs, message, Form, Input, CheckBox, Modal } from 'antd';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, Link, HashHistory, browserHistory } from 'react-router';
 
 //用于表单提交
 const FormItem = Form.Item;
@@ -22,7 +22,8 @@ class MobileHeader extends React.Component {
             action: 'login',
             hasLogined: false,
             userNickName: '',
-            userid: 0
+            userid: 0,
+            centerModalVisible: false
         }
     }
     ;
@@ -41,6 +42,8 @@ class MobileHeader extends React.Component {
                     userNickName: json.NickUserName, //由api返回
                     uerid: json.UserId
                 });
+                localStorage.userid = json.userId;
+                localStorage.userNickName = json.NickUserName;
                 //如果登录成功，将hasLogined置为true
                 if (this.state.action == 'login') {
                     this.setState({
@@ -87,6 +90,17 @@ class MobileHeader extends React.Component {
         }
     }
     ;
+    logout() {
+        localStorage.userid = '';
+        localStorage.userNickName = '';
+        this.setState({
+            hasLogined: false
+        });
+    }
+    ;
+    //移动端登出部分逻辑，将退出按钮放在个人中心，待个人中心功能完成后再做该功能
+    setCenterModalVisible() {}
+    ;
     render() {
         //定义一个全局变量来接收form表单的参数
         let {getFieldDecorator} = this.props.form;
@@ -96,9 +110,7 @@ class MobileHeader extends React.Component {
             ?
             <Icon type="inbox" className="login-icon"></Icon>
             :
-            <Link target="_blank">
-                <Icon type="setting" onClick = {this.login.bind(this)} className="login-icon"></Icon>
-            </Link>;
+            <Icon type="setting" onClick = {this.login.bind(this)} className="login-icon"></Icon>
 
         return (
             <header id="mobile-header">
@@ -141,6 +153,9 @@ class MobileHeader extends React.Component {
                             </Form>
                           </TabPane>
                     </Tabs>
+                </Modal>
+                <Modal title="个人中心">
+                    
                 </Modal>
             </header>
         );
