@@ -2,8 +2,9 @@
 * @Author: Kally Shao
 * @Date:   2018-03-16 10:21:47
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-23 17:35:36
+* @Last Modified time: 2018-03-29 13:45:40
 */
+
 
 .logo{
 	align-items: center;
@@ -26,6 +27,21 @@
 .register button{
 	margin-left: 5px;
 }
+
+.topNewsList li{
+	list-style: none;
+	height: 27px;
+	line-height: 27px;
+	font-size: 14px;
+	white-space: nowrap;
+	overflow: hidden;
+	float: left;
+	text-overflow: ellipsis;
+}
+.topNewsList a{
+	color: #666;
+}
+
 /*.left-container{
 	border: 1px solid #ccc;
 }*/
@@ -44,4 +60,41 @@
 
 .custom-card p {
     color: #999;
+}
+.pc-news-image{
+	margin-bottom: 20px;
+}
+
+/*详情部分*/
+.container{
+    text-align: center;
+    margin-top: 5px;
+    padding-top: 10px;
+}
+.article{
+    text-align: justify;
+}
+#title{
+    margin: 16px 16px 0!important;
+    border-bottom: 1px solid #e5e5e5
+}
+.article-content{
+    padding: 10px 30px;
+}
+.txt{
+    font-size: 14px;
+    line-height: 30px;
+    text-indent: 30px;
+}
+.section.img img{
+    width: 60%;
+    height: auto;
+}
+/*详情右边列表*/
+.detail-right{
+	margin-top: 20px;
+	padding-left: 10px;
+}
+.article-src-time{
+	padding: 10px 0;
 }

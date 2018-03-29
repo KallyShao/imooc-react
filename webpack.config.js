@@ -2,7 +2,7 @@
  * @Author: Administrator
  * @Date:   2018-01-08 22:16:12
  * @Last Modified by:   Administrator
- * @Last Modified time: 2018-03-23 16:04:34
+ * @Last Modified time: 2018-03-29 10:19:24
  */
 
 var debug = process.env.NODE_ENV !== "production";
@@ -10,6 +10,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+    //配置浏览器中的详细错误，方便查找错误
     devServer: {
         historyApiFallback: true
     },

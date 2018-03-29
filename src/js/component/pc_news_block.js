@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-23 11:35:01
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-23 15:49:35
+* @Last Modified time: 2018-03-27 15:10:13
 */
 import React from 'react';
 import { Card } from 'antd';
@@ -34,22 +34,22 @@ export default class PCNewsBlock extends React.Component {
             ?
             news.map((newsItem, index) => (
                 <li key={index}>
-	    			<Link to={`details/${newsItem.uniquekey}`} target="_blank">
-	    				{newsItem.title}
-	    			</Link>
-    		</li>
+                    <Link to={`details/${newsItem.uniquekey}`} target="_blank">
+                        {newsItem.title}
+                    </Link>
+            </li>
             ))
             :
             '没有加载到任何新闻';
 
         return (
             <div className="topNewsList">
-				<Card>
-					<ul>
-						{newsList}
-					</ul>
-				</Card>
-			</div>
+                <Card>
+                    <ul>
+                        {newsList}
+                    </ul>
+                </Card>
+            </div>
         );
     }
 }

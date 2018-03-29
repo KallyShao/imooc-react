@@ -2,12 +2,12 @@
 * @Author: Administrator
 * @Date:   2018-03-15 16:23:38
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-23 15:26:12
+* @Last Modified time: 2018-03-29 17:10:47
 */
 
 import React from 'react';
 import { Row, Col, Menu, Icon, Button, Tabs, message, Form, Input, CheckBox, Modal } from 'antd';
-import { Router, Route, Link, browserHistory } from 'react-router-dom';
+import { Router, Route, Link } from 'react-router-dom';
 
 //用于表单提交
 const FormItem = Form.Item;
@@ -52,9 +52,9 @@ class PCHeader extends React.Component {
             .then(json => {
                 this.setState({
                     userNickName: json.NickUserName, //由api返回
-                    uerid: json.UserId
+                    userid: json.UserId
                 });
-                localStorage.userid = json.userId;
+                localStorage.userid = json.UserId;
                 localStorage.userNickName = json.NickUserName;
                 //如果登录成功，将hasLogined置为true
                 if (this.state.action == 'login') {
@@ -127,7 +127,7 @@ class PCHeader extends React.Component {
               <Col span={2}></Col>
               <Col span={4}>
                 <a href="/" className="logo">
-                  <img src="./src/images/news_icon.png" alt="logo"/>
+                  <img src="/src/images/news_icon.png" alt="logo"/>
                   <span>ReactNews</span>
                 </a>
               </Col>

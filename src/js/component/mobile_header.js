@@ -2,7 +2,7 @@
 * @Author: Kally Shao
 * @Date:   2018-03-15 16:23:57
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-23 10:04:02
+* @Last Modified time: 2018-03-29 14:13:19
 */
 
 import React from 'react';
@@ -114,7 +114,7 @@ class MobileHeader extends React.Component {
 
         return (
             <header id="mobile-header">
-                <img src="./src/images/news_icon.png" alt="logo"/>
+                <img src="/src/images/news_icon.png" alt="logo"/>
                 <span>ReactNews</span>
                 {userShow}
 

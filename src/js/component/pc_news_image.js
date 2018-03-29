@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-23 11:35:42
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-23 17:31:58
+* @Last Modified time: 2018-03-27 10:45:05
 */
 import React from 'react';
 import { Card } from 'antd';
@@ -61,7 +61,7 @@ export default class PCNewsImage extends React.Component {
             '没有加载到任何新闻';
 
         return (
-            <div className="">
+            <div className="pc-news-image">
                 <Card title={this.props.cartTitle} bordered={true} style={{
                 width: this.props.width
             }}>
