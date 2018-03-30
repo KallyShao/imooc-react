@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-15 16:23:38
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-29 17:10:47
+* @Last Modified time: 2018-03-30 14:07:26
 */
 
 import React from 'react';
@@ -50,6 +50,7 @@ class PCHeader extends React.Component {
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action + "&username=" + formData.userName + "&password=" + formData.password + "&r_userName=" + formData.r_userName + "&r_password=" + formData.r_password + "&r_confirmPassword=" + formData.r_passwordConfirm, myFetchOptions)
             .then(response => response.json()) //response是借口返回的内容，相当于回调函数中的传参
             .then(json => {
+                console.log(json);
                 this.setState({
                     userNickName: json.NickUserName, //由api返回
                     userid: json.UserId
@@ -109,11 +110,16 @@ class PCHeader extends React.Component {
     render() {
         //定义一个全局变量来接收form表单的参数
         let {getFieldDecorator} = this.props.form;
+        const userid = localStorage.userid;
         const userShow = this.state.hasLogined
             ?
             <Menu.Item key="logout" className="register">
               <Button type="primary">{this.state.userNickName}</Button>
-              <Button type="dashed" htmlType="button">个人中心</Button>
+              <Button type="dashed" htmlType="button">
+                <Link to={`/usercenter`} target="_blank">
+                  个人中心
+                </Link>
+              </Button>
               <Button type="danger" onClick={this.logout.bind(this)}>退出</Button>
             </Menu.Item>
             :

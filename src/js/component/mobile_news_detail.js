@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-29 13:59:13
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-29 16:20:39
+* @Last Modified time: 2018-03-30 09:42:04
 */
 import React from 'react';
 import { Row, Col, BackTop } from 'antd';
@@ -52,7 +52,7 @@ export default class MobileNewsDetail extends React.Component {
                         <BackTop></BackTop>
                     </Col>
                 </Row>
-                <CommonComments></CommonComments>
+                <CommonComments uniquekey={this.props.match.params.uniquekey}></CommonComments>
                 <MobileFooter></MobileFooter>
             </div>
         );

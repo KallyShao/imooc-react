@@ -2,7 +2,7 @@
 * @Author: Kally Shao
 * @Date:   2018-03-15 16:23:57
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-29 14:13:19
+* @Last Modified time: 2018-03-30 15:33:25
 */
 
 import React from 'react';
@@ -108,16 +108,21 @@ class MobileHeader extends React.Component {
 
         const userShow = this.state.hasLogined
             ?
-            <Icon type="inbox" className="login-icon"></Icon>
+            <Link to={`/usercenter`} target="_blank">
+                <Icon type="inbox" className="login-icon" />
+            </Link>
             :
-            <Icon type="setting" onClick = {this.login.bind(this)} className="login-icon"></Icon>
+            <Icon type="setting" onClick = {this.login.bind(this)} className="login-icon"></Icon>;
 
         return (
-            <header id="mobile-header">
-                <img src="/src/images/news_icon.png" alt="logo"/>
-                <span>ReactNews</span>
-                {userShow}
-
+            <div>
+                <header id="mobile-header">
+                    <a href="/">
+                        <img src="/src/images/news_icon.png" alt="logo"/>
+                        <span>ReactNews</span>
+                    </a>
+                    {userShow}
+                </header>
                 <Modal title="用户中心"
             wrapClassName="vertical-center-modal"
             visible={this.state.modalVisible}
@@ -157,7 +162,7 @@ class MobileHeader extends React.Component {
                 <Modal title="个人中心">
                     
                 </Modal>
-            </header>
+            </div>
         );
     }
     ;

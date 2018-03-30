@@ -2,7 +2,7 @@
 * @Author: Kally Shao
 * @Date:   2018-03-16 10:21:47
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-29 13:45:40
+* @Last Modified time: 2018-03-30 17:40:36
 */
 
 
@@ -20,6 +20,7 @@
 }
 .footer{
 	text-align: center;
+	margin-top: 30px;
 }
 .register{
 	float: right !important;
@@ -97,4 +98,14 @@
 }
 .article-src-time{
 	padding: 10px 0;
+}
+/*评论框和按钮*/
+.comment-area{
+	margin-bottom: 10px !important;
+}
+.comment-time{
+	color: #2db7f5;
+}
+.collect{
+	margin-left: 20px;
 }
