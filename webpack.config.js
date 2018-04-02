@@ -2,7 +2,7 @@
  * @Author: Administrator
  * @Date:   2018-01-08 22:16:12
  * @Last Modified by:   Administrator
- * @Last Modified time: 2018-03-29 10:19:24
+ * @Last Modified time: 2018-04-02 16:03:44
  */
 
 var debug = process.env.NODE_ENV !== "production";
@@ -33,6 +33,10 @@ module.exports = {
                 loader: 'style-loader!css-loader'
             //上面localIndentName后面是自定义的经过style-loader和css-loader处理之后的类名，为了防止和其他模块冲突
             },
+            {
+                test: /\.less$/,
+                loader: 'style!css!less'
+            }
         ]
     },
     output: {

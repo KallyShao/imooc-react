@@ -2,7 +2,7 @@
 * @Author: Kally Shao
 * @Date:   2018-03-16 14:37:28
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-30 17:41:55
+* @Last Modified time: 2018-04-02 11:08:11
 */
 
 html{
@@ -34,8 +34,18 @@ html{
     color: #ccc;
     position: absolute;
     top: 0.4rem;
-    right: 0.4rem;
+    right: 2rem;
     color: #2db7f5;
+}
+.logout-btn{
+    position: absolute !important;
+    top: 0.3rem;
+    right: 0.4rem;
+}
+.logout-btn span{
+    font-size: 0.3rem !important;
+    padding-left: 0 !important;
+    color: #f5222d !important;
 }
 .carousel img{
 	width: 80%;

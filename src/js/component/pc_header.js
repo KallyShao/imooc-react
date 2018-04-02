@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-15 16:23:38
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-30 14:07:26
+* @Last Modified time: 2018-04-02 11:38:36
 */
 
 import React from 'react';
@@ -97,6 +97,7 @@ class PCHeader extends React.Component {
                 action: 'login'
             });
         }
+        console.log(this.state.action);
     }
     ;
     logout() {
@@ -115,11 +116,11 @@ class PCHeader extends React.Component {
             ?
             <Menu.Item key="logout" className="register">
               <Button type="primary">{this.state.userNickName}</Button>
-              <Button type="dashed" htmlType="button">
-                <Link to={`/usercenter`} target="_blank">
-                  个人中心
-                </Link>
-              </Button>
+              <Link to={`/usercenter`} target="_blank" className="user-center">
+                <Button type="dashed" htmlType="button">
+                    个人中心
+                </Button>
+              </Link>
               <Button type="danger" onClick={this.logout.bind(this)}>退出</Button>
             </Menu.Item>
             :
@@ -181,6 +182,17 @@ class PCHeader extends React.Component {
             okText = "关闭"
             >
                     <Tabs type="card" onChange = {this.callback.bind(this)}>
+                      <TabPane tab="登录" key="login">
+                        <Form layout = "horizontal" onSubmit={this.handleSubmit.bind(this)}>
+                          <FormItem label="账户">
+                            {getFieldDecorator('userName')(<Input placeholder="请输入您的账号"></Input>)}
+                          </FormItem>
+                          <FormItem label="密码">
+                            {getFieldDecorator('password')(<Input type="password" placeholder="请输入您的密码"></Input>)}
+                          </FormItem>
+                          <Button type="primary" htmlType="submit">登录</Button>
+                        </Form>
+                      </TabPane>
                       <TabPane tab="注册" key="register">
                         <Form layout = "horizontal" onSubmit={this.handleSubmit.bind(this)}>
                           <FormItem label="账户">
@@ -195,19 +207,7 @@ class PCHeader extends React.Component {
                           <Button type="primary" htmlType="submit">注册</Button>
                         </Form>
                       </TabPane>
-                      <TabPane tab="登录" key="login">
-                        <Form layout = "horizontal" onSubmit={this.handleSubmit.bind(this)}>
-                          <FormItem label="账户">
-                            {getFieldDecorator('userName')(<Input placeholder="请输入您的账号"></Input>)}
-                          </FormItem>
-                          <FormItem label="密码">
-                            {getFieldDecorator('password')(<Input type="password" placeholder="请输入您的密码"></Input>)}
-                          </FormItem>
-                          <Button type="primary" htmlType="submit">登录</Button>
-                        </Form>
-                      </TabPane>
                     </Tabs>
-
                   </Modal>
               </Col>
               <Col span={2}>

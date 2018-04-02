@@ -2,13 +2,14 @@
 * @Author: Administrator
 * @Date:   2018-03-23 11:34:35
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-23 17:49:19
+* @Last Modified time: 2018-04-02 14:46:35
 */
 
 import React from 'react';
 import { Row, Col, Tabs, Carousel } from 'antd';
 import PCNewsBlock from './pc_news_block';
 import PCNewsImage from './pc_news_image';
+import PCProduct from './pc_product.js';
 
 const TabPane = Tabs.TabPane;
 
@@ -53,7 +54,9 @@ export default class PCNewsContainer extends React.Component {
 									</TabPane>
 								</Tabs>
 							</Col>
-							<Col span={8}></Col>
+							<Col span={8}>
+								<PCProduct />
+							</Col>
 						</Row>
 						<div>
 							<PCNewsImage type="shehui" count="10" width="100%" cartTitle="社会头条" imageWidth="120px"></PCNewsImage>

@@ -2,10 +2,12 @@
 * @Author: Kally Shao
 * @Date:   2018-03-16 10:21:47
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-30 17:40:36
+* @Last Modified time: 2018-04-02 15:09:21
 */
 
-
+li{
+	list-style: none;
+}
 .logo{
 	align-items: center;
 	display: flex;
@@ -24,11 +26,14 @@
 }
 .register{
 	float: right !important;
+	width: 300px;
 }
 .register button{
 	margin-left: 5px;
 }
-
+.user-center{
+	display: inline-block !important;
+}
 .topNewsList li{
 	list-style: none;
 	height: 27px;
@@ -108,4 +113,238 @@
 }
 .collect{
 	margin-left: 20px;
+}
+
+/*首页右边html嵌入部分*/
+.cm_mod_tab {
+    border: 1px #e5e5e5 solid;
+    border-top: 0;
+    padding-top: 1px;
+    background: url(../images/borderline.png) repeat-x;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.cm_mod_tab .tab_nav {
+    height: 39px;
+    line-height: 39px;
+    background: #f8f8f8;
+    border-bottom: 1px #e5e5e5 solid;
+}
+
+.cm_mod_tab .tab_nav i {
+    height: 2px;
+    background: #f33;
+    overflow: hidden;
+    display: none;
+    margin: -1px 0 0 -1px;
+}
+
+.cm_mod_tab .cm_smallimg_list {
+    padding-left: 7px;
+    margin-bottom: 11px;
+}
+
+.cm_mod_tab .cm_smallimg_list .cm_smallimg {
+    width: 140px;
+    overflow: hidden;
+    margin-right: 4px;
+    font-size: 12px;
+}
+
+.cm_mod_tab .cm_smallimg_list .cm_smallimg h3 {
+    line-height: 18px;
+    margin-top: 7px;
+}
+
+.cm_mod_tab .cm_smallimg_list .photo {
+    display: block;
+    width: 140px;
+    height: 88px;
+    overflow: hidden;
+}
+
+.cm_mod_tab .cm_smallimg_list_bg {
+    width: 300px;
+}
+
+.cm_mod_tab .cm_smallimg_list_bg .cm_smallimg {
+    position: relative;
+    height: 88px
+}
+
+.cm_mod_tab .cm_smallimg_list_bg .cm_smallimg a {
+    color: #fff
+}
+
+.cm_mod_tab .cm_smallimg_list_bg .cm_smallimg h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 100%;
+    text-indent: 4px;
+    line-height: 20px;
+    background: rgba(0,0,0,0.6);
+    background: #000\9
+}
+
+.cm_mod_tab .cm_ul_line {
+    border-top: 1px #e5e5e5 dashed
+}
+.cm_ul_round li {
+    position: relative;
+    padding-left: 12px;
+    overflow: hidden
+}
+
+.cm_ul_round li:after {
+    content: "";
+    background: #ccc;
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%
+}
+
+.cm_ul_round li {
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+}
+
+.cm_ul_round li:after {
+    margin-top: -2px;
+}
+
+.cm_ul_round .two_li {
+    margin-top: 11px;
+}
+
+.cm_ul_round_r {
+    margin: 10px 13px;
+}
+
+.cm_ul_round_r li {
+    position: relative;
+    padding-left: 12px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.cm_ul_round_r li:after {
+    content: "";
+    background: #ccc;
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.cm_ul_round_r li {
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.cm_ul_round_r li:after {
+    margin-top: -1px;
+}
+
+.cm_mod_tab1 .tab_nav .title {
+    color: #f33;
+    background: #fff;
+    float: left;
+    border-right: 1px #e5e5e5 solid;
+    height: 39px;
+    text-align: center;
+    width: 149px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cm_mod_tab1 .tab_nav .title i {
+    display: block;
+}
+
+.cm_mod_tab1 .tab_nav .title a {
+    color: #f33;
+}
+
+.cm_mod_tab1 .more {
+    float: right;
+    display: inline;
+    color: #888;
+    font-size: 12px;
+    padding-right: 20px;
+    background: url(../images/sprite_icon.png?1228) no-repeat 100% -50px;
+    margin-right: 10px;
+}
+
+.cm_mod_tab1 .more:hover {
+    color: #63ace6;
+    background-position: 100% -123px;
+}
+
+.cm_mod_tab1 .more_open,.cm_mod_tab1 .more_open:hover {
+    background-position: 100% -84px;
+}
+
+.cm_mod_tab2 .tab_nav,.cm_mod_tab3 .tab_nav {
+    width: 300px;
+}
+
+.cm_mod_tab2 .tab_nav li,.cm_mod_tab3 .tab_nav li {
+    float: left;
+    text-align: center;
+    width: 148px;
+    font-size: 16px;
+    border-left: 1px #e5e5e5 solid;
+    border-right: 1px #e5e5e5 solid;
+    margin-left: -1px;
+    color: #888;
+    position: relative;
+}
+
+.cm_mod_tab2 .tab_nav .current,.cm_mod_tab3 .tab_nav .current {
+    background: #fff;
+    color: #f33;
+    font-weight: bold;
+    width: 149px;
+}
+
+.cm_mod_tab2 .tab_nav .current i,.cm_mod_tab3 .tab_nav .current i {
+    display: block;
+}
+
+.cm_mod_tab2 .tab_nav .current a,.cm_mod_tab3 .tab_nav .current a {
+    color: #f33;
+}
+
+.cm_mod_tab2 .tab_main .tab_panel,.cm_mod_tab3 .tab_main .tab_panel {
+    display: none;
+}
+
+.cm_mod_tab2 .tab_main .current,.cm_mod_tab3 .tab_main .current {
+    display: block;
+}
+
+.cm_mod_tab3 .tab_nav li {
+    width: 98px;
+}
+
+.cm_mod_tab3 .tab_nav .current {
+    width: 100px;
 }

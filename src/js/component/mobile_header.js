@@ -2,12 +2,12 @@
 * @Author: Kally Shao
 * @Date:   2018-03-15 16:23:57
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-30 15:33:25
+* @Last Modified time: 2018-04-02 10:49:44
 */
 
 import React from 'react';
 import { Row, Col, Menu, Icon, Button, Tabs, message, Form, Input, CheckBox, Modal } from 'antd';
-import { Router, Route, Link, HashHistory, browserHistory } from 'react-router';
+import { Router, Route, Link, HashHistory, browserHistory } from 'react-router-dom';
 
 //用于表单提交
 const FormItem = Form.Item;
@@ -27,6 +27,19 @@ class MobileHeader extends React.Component {
         }
     }
     ;
+    //刷新时保持登录或登出的状态
+    componentWillMount() {
+        if (localStorage.userid != '') {
+            this.setState({
+                hasLogined: true
+            });
+            this.setState({
+                userNickName: localStorage.userNickName,
+                userid: localStorage.userid
+            });
+        }
+    }
+    ;
     handleSubmit(e) {
         //提交数据，注册或登录
         e.preventDefault(); //阻止事件冒泡
@@ -42,7 +55,7 @@ class MobileHeader extends React.Component {
                     userNickName: json.NickUserName, //由api返回
                     uerid: json.UserId
                 });
-                localStorage.userid = json.userId;
+                localStorage.userid = json.UserId;
                 localStorage.userNickName = json.NickUserName;
                 //如果登录成功，将hasLogined置为true
                 if (this.state.action == 'login') {
@@ -104,13 +117,15 @@ class MobileHeader extends React.Component {
     render() {
         //定义一个全局变量来接收form表单的参数
         let {getFieldDecorator} = this.props.form;
-        // const userShow = <Icon type="appstore"></Icon>;
 
         const userShow = this.state.hasLogined
             ?
-            <Link to={`/usercenter`} target="_blank">
-                <Icon type="inbox" className="login-icon" />
-            </Link>
+            <div>
+                <Link to={`/usercenter`} target="_blank">
+                   <Icon type="inbox" className="login-icon" />
+               </Link>
+               <Button type="danger" onClick={this.logout.bind(this)} className="logout-btn">退出</Button>
+            </div>
             :
             <Icon type="setting" onClick = {this.login.bind(this)} className="login-icon"></Icon>;
 

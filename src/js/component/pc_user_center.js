@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-30 10:37:39
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-30 17:32:39
+* @Last Modified time: 2018-04-02 14:11:05
 */
 
 import React from 'react';
@@ -95,7 +95,6 @@ export default class PCUserCenter extends React.Component {
     }
     ;
 
-
     render() {
         const {loading, loadingMore, showLoadingMore, articleList, commentsList} = this.state;
         const loadMore = showLoadingMore ? (
@@ -109,6 +108,40 @@ export default class PCUserCenter extends React.Component {
                 {!loadingMore && <Button onClick={this.onLoadMore.bind(this)}>加载更多</Button> }
             </div>
             ) : null;
+        const articleListItem = articleList.length ?
+            <List
+            className="collect-list"
+            loading={loading}
+            itemLayout="horizontal"
+            loadMore={loadMore}
+            dataSource={articleList}
+            renderItem={item => (
+                <List.Item actions={[<a href={`/details/${item.uniquekey}`} target="_blank">查看</a>]}>
+                <List.Item.Meta
+                title={item.uniquekey}
+                description={<a href={`/details/${item.uniquekey}`} target="_blank">{item.Title}</a>}
+                />
+            </List.Item>
+            )}
+            />
+            : '您的新闻列表为空';
+        const commentsListItem = commentsList.length ?
+            <List
+            className="comments-list"
+            loading={loading}
+            itemLayout="horizontal"
+            loadMore={loadMore}
+            dataSource={commentsList}
+            renderItem={item => (
+                <List.Item actions={[<a href={`/details/${item.uniquekey}`} target="_blank">查看</a>]}>
+                                    <List.Item.Meta
+                title={`于${item.datetime}评论了文章${item.uniquekey}`}
+                description={item.Comments}
+                />
+                                </List.Item>
+            )}
+            />
+            : '您还没有发表过任何评论';
 
         return (
             <div>
@@ -118,38 +151,10 @@ export default class PCUserCenter extends React.Component {
                     <Col span={20}>
                         <Tabs defaultActiveKey="collect">
                             <TabPane tab="我的收藏列表" key="collect">
-                                <List
-            className="collect-list"
-            loading={loading}
-            itemLayout="horizontal"
-            loadMore={loadMore}
-            dataSource={articleList}
-            renderItem={item => (
-                <List.Item actions={[<a href={`/details/${item.uniquekey}`} target="_blank">查看</a>]}>
-                    <List.Item.Meta
-                title={item.uniquekey}
-                description={<a href={`/details/${item.uniquekey}`} target="_blank">{item.Title}</a>}
-                />
-                </List.Item>
-            )}
-            />
+                                {articleListItem}
                             </TabPane>
                             <TabPane tab="我的评论列表" key="comment">
-                                <List
-            className="comments-list"
-            loading={loading}
-            itemLayout="horizontal"
-            loadMore={loadMore}
-            dataSource={commentsList}
-            renderItem={item => (
-                <List.Item actions={[<a href={`/details/${item.uniquekey}`} target="_blank">查看</a>]}>
-                                        <List.Item.Meta
-                title={`于${item.datetime}评论了文章${item.uniquekey}`}
-                description={item.Comments}
-                />
-                                    </List.Item>
-            )}
-            />
+                                {commentsListItem}
                             </TabPane>
                             <TabPane tab="头像设置" key="avatar">
                                 <CommonAvatar />
