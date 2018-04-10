@@ -5,7 +5,8 @@
   "main": "root.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --inline"
+    "start": "webpack-dev-server --hot --inline",
+    "build": "webpack -p"
   },
   "author": "kally",
   "license": "ISC",
@@ -32,6 +33,7 @@
     "webpack-dev-server": "^2.10.0"
   },
   "devDependencies": {
+    "babili-webpack-plugin": "^0.1.2",
     "less": "^3.0.1",
     "less-loader": "^4.1.0"
   }

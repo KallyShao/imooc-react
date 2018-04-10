@@ -2,21 +2,31 @@
  * @Author: Administrator
  * @Date:   2018-01-08 22:16:12
  * @Last Modified by:   Administrator
- * @Last Modified time: 2018-04-02 16:03:44
+ * @Last Modified time: 2018-04-08 15:20:46
  */
 
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
+const BabiliPlugin = require("babili-webpack-plugin");
 
 module.exports = {
     //配置浏览器中的详细错误，方便查找错误
     devServer: {
         historyApiFallback: true
     },
+    // performance: {
+    //     hints: 'warning', //级别
+    //     maxEntrypointSize: 100000, //单位bytes
+    //     maxAssetSize: 450000
+    // },
     context: path.join(__dirname), //__dirname是全局目录，也是项目根目录
-    devtool: debug ? "inline-sourcemap" : null,
-    entry: './src/js/root.js',
+    // devtool: debug ? "inline-sourcemap" : null,
+    entry: {
+        app: './src/js/root.js',
+        vendor: ['react'], //外部依赖
+    },
+    // devtool: 'source-map',
     module: {
         loaders: [
             {
@@ -41,14 +51,12 @@ module.exports = {
     },
     output: {
         path: __dirname,
-        filename: "./src/bundle.js"
+        filename: "[name].js"
     },
-    plugins: debug ? [] : [
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: false,
-            sourcemap: false
-        }),
+    plugins: [
+        new BabiliPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        })
     ],
 };
